@@ -1,0 +1,29 @@
+Chip8 Emulator written in C for Linux.
+This emulator requires SDL. In Linux, run the following command:
+
+     sudo apt-get install build-essential
+     
+Open up a package manager and get the following packages:
+
+	libsdl-1.2debian
+	libsdl-1.2debian-alsa
+	libsdl-1.2dev
+	libsdl-image1.2
+	libsdl-image1.2-dev
+	libsdl-mixer1.2
+	libsdl-mixer1.2-dev
+	libsdl-net1.2
+	libsdl-net1.2-dev
+	mesa-common-dev
+	libglu1-mesa-dev
+
+git commands:
+
+    git clone
+    git add <filenames>
+    git commit
+    git push origin <branch name>
+    git branch <new branch name>
+    git checkout <branch name>
+    git fetch
+    git push
