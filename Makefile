@@ -1,7 +1,7 @@
 CC = gcc
 DEBUG_FLAGS = -g -Wall
-STL = -std=c++11
-CFLAGS = $(DEBUG_FLAGS) -O0 # $(STL)
+STL = -std=c++0x
+CFLAGS = $(DEBUG_FLAGS) -O0  # $(STL)
 LDFLAGS = -lm
 
 # name the executable
@@ -20,7 +20,7 @@ $(EXE): $(OBJ) $(EXEOBJ) src/*.h
 
 # build object files
 obj/%.o: src/%.c
-	@echo "CXX $@"
+	@echo "C $@"
 	@ ${CC} ${CFLAGS} -c $< -o $@
 
 bootstrap:
