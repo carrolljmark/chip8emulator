@@ -1,7 +1,7 @@
 CC = gcc
 DEBUG_FLAGS = -g -Wall
 STL = -std=c++0x
-CFLAGS = $(DEBUG_FLAGS) -O0  # $(STL)
+CFLAGS = $(DEBUG_FLAGS) -O0 # $(STL)
 LDFLAGS = -lm
 
 # name the executable
