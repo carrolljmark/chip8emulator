@@ -11,13 +11,14 @@ typedef unsigned short word;
 
 typedef struct chip8_cpu{
 
-	word opcode;
-	byte memory[MEMORYSIZE];
-	byte registers[NUMREGISTERS];
-	word address_reg;
-	byte stack[STACKLEVELS];
-	word program_counter;
-	// will need timers, graphics, and sound
+    word opcode = 0;
+    byte memory[MEMORYSIZE];
+    byte registers[NUMREGISTERS];
+    word address_reg = 0;
+    byte stack[STACKLEVELS];
+    word program_counter = 0;
+    word stack_pointer = 0;
+    // will need timers, graphics, and sound
 
 } chip8;
 
