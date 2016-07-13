@@ -1,32 +1,39 @@
+
+# Author:		Mark Carroll <carrolljmark@gmail.com>
+# Date created:		2016/07/03
+# Description:		Simple makefile
+
 CC = gcc
-DEBUG_FLAGS = -g -Wall
-STL = -std=c++0x
-CFLAGS = $(DEBUG_FLAGS) -O0 # $(STL)
-LDFLAGS = -lm
 
-# name the executable
+IDIR = include
+SDIR = src
+ODIR = obj
+
+ROOT_DIR = $(CURDIR)
+
+CFLAGS = -g -Wall
+INCLUDES = -I$(ROOT_DIR)
+LFLAGS = -lm
+
 EXE 	= chip8
-
-#OBJ	= 		
-
-EXEOBJ 	= obj/chip8.o
+EXEOBJ 	= $(ODIR)/$(EXE).o
 
 all: bootstrap $(EXE)
 
 # build executable
-$(EXE): $(OBJ) $(EXEOBJ) src/*.h
+$(EXE): $(ODIR) $(EXEOBJ)
 	@echo "LD $@"
-	@ $(CC) $(CFLAGS) -o $@ $(OBJ) obj/$@.o $(LDFLAGS)
+	@ $(CC) $(CFLAGS) $(INCLUDES) -o $@ $(ODIR) $(ODIR)/$@.o $(LFLAGS)
 
 # build object files
-obj/%.o: src/%.c
+$(ODIR)/%.o: $(SDIR)/%.c
 	@echo "C $@"
-	@ ${CC} ${CFLAGS} -c $< -o $@
+	@ ${CC} ${CFLAGS} ${INCLUDES} -c $< -o $@
 
 bootstrap:
-	@mkdir -p obj
+	@mkdir -p $(ODIR)
 
 clean:
 	rm -f $(EXE)
-	rm -f obj/*.o 
-	rmdir obj
+	rm -f $(ODIR)/*.o
+	rmdir $(ODIR)

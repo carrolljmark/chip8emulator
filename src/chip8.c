@@ -6,7 +6,7 @@
 
 #include <stdlib.h>
 #include <stdio.h>
-#include "chip8.h"
+#include "include/chip8.h"
 
 
 // load game into ram starting at 0x200
@@ -59,19 +59,19 @@ void cpu_cycle(chip8 *c8e){
 	if(c8e->registers[(c8e->opcode & 0x0F00) >> 8] == (c8e->opcode & 0x00FF))
 	    c8e->program_counter += 4;
 	else
-	    c8e->program_counter += 2;	       
+	    c8e->program_counter += 2;
 	break;
     case 0x4000:
 	if(c8e->registers[(c8e->opcode & 0x0F00) >> 8] != (c8e->opcode & 0x00FF))
 	    c8e->program_counter += 4;
 	else
-	    c8e->program_counter += 2;	       
+	    c8e->program_counter += 2;
 	break;
     case 0x5000:
 	if(c8e->registers[(c8e->opcode & 0x0F00) >> 8] == c8e->registers[(c8e->opcode & 0x00F0) >> 4])
 	    c8e->program_counter += 4;
 	else
-	    c8e->program_counter += 2;	       
+	    c8e->program_counter += 2;
 	break;
     case 0x6000:
 	break;
@@ -117,7 +117,7 @@ void print_memory(chip8 *c8e, int start, int end){
 
 
 int main(int argc, char **argv){
-	
+
     chip8 chip8_cpu;
     load_game(&chip8_cpu);
     //print_memory(&chip8_cpu, 0x200, MEMORYSIZE-0x200);
